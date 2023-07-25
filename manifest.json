@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "PriChat",
+    "description": "A smart Chatbot for your privacy",
+    "version": "1.0",
+    "action": {
+      "default_popup": "./popup/popup.html",
+      "default_icon": "./images/hello_extensions.png"
+    },
+    "permissions": [
+      "activeTab",
+      "declarativeContent",
+      "storage"
+    ]
+  }
