@@ -1,15 +1,26 @@
 {
-    "manifest_version": 3,
-    "name": "PriChat",
-    "description": "A smart Chatbot for your privacy",
-    "version": "1.0",
-    "action": {
-      "default_popup": "./popup/popup.html",
-      "default_icon": "./images/hello_extensions.png"
-    },
-    "permissions": [
-      "activeTab",
-      "declarativeContent",
-      "storage"
-    ]
-  }
+  "manifest_version": 3,
+  "name": "PriChat",
+  "description": "A smart Chatbot for your privacy",
+  "version": "1.0",
+  "action": {
+    "default_popup": "./popup/popup.html",
+    "default_icon": "./images/hello_extensions.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ai.taobao.com/?pid=mm_134011580_2607650495_114766300277&union_lens=lensId%3APUB%401679043276%4021073a1c_0d0d_186eec72e1f_04cb%4001&gclid=Cj0KCQjwwvilBhCFARIsADvYi7I0_YxTVSkk4Oi2rKiUeMAKjwzw-XEJNLzqLF7oZz92tXDb2bIbHAIaAvZfEALw_wcB"
+      ],
+      "js": [
+        "./scripts/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
