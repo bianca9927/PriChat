@@ -1,8 +1,5 @@
-//Listen user input
-document.addEventListener("input", function (event) {
-    const userInput = event.target.value;
-    // 向 background script 发送消息
-    chrome.runtime.sendMessage({ action: "showExtensionPopup", input: userInput });
-  });
-  
-  
+//Listen detail page info
+
+// 使用选择器获取包含产品名称的元素
+let productName = document.querySelector('.tb-main-title').textContent;
+chrome.runtime.sendMessage({product: productName});
