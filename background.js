@@ -9,7 +9,7 @@
 //});
 
 
-//use long connect
+//use long connect test
 let port;
 chrome.runtime.onConnect.addListener(function (newPort) {
     port = newPort;
