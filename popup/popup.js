@@ -1,6 +1,5 @@
 // Listen msg from Background
 window.onload = function() {
-  // 建立长连接
   const port = chrome.runtime.connect({ name: "popupConnection" });
 
 
