@@ -1,28 +1,19 @@
 // Listen msg from content--initial version
 
-//chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  //    if (request.product) {
-    //    console.log('Product Name: ' + request.product);
-      //  chrome.runtime.sendMessage({product: request.product });
-      //}
-      
-//});
+// Listen msg from content--initial version
 
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("Hello World!");
+});
 
-//use long connect test
-let port;
-chrome.runtime.onConnect.addListener(function (newPort) {
-    port = newPort;
-    console.log("Connected to Popup.");
-  }
-);
+//var value1,value2,value3;
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.product) {
-    console.log('Product Name: ' + request.product);
-    if (port) {
-      port.postMessage({product_forpopup: request.product });
-    }
+chrome.runtime.onMessage.addListener((msg, sender) => {
+  // First, validate the message's structure.
+  if ((msg.from === 'content') && (msg.subject === 'showPageAction')) {
+    console.log("inside the message listener");
+    // Enable the page-action for the requesting tab.
+    chrome.pageAction.show(sender.tab.id);
   }
 });
 
